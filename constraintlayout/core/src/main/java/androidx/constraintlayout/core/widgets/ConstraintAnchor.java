@@ -33,19 +33,19 @@ public class ConstraintAnchor {
 
     private static final boolean ALLOW_BINARY = false;
 
-    private HashSet<ConstraintAnchor> mDependents = null;
+    private HashMap<Type, ConstraintAnchor> mDependents = null;
     private int mFinalValue;
     private boolean mHasFinalValue;
 
     public void findDependents(int orientation, ArrayList<WidgetGroup> list, WidgetGroup group) {
         if (mDependents != null) {
-            for (ConstraintAnchor anchor : mDependents) {
+            for (ConstraintAnchor anchor : mDependents.values()) {
                 Grouping.findDependents(anchor.mOwner, orientation, list, group);
             }
         }
     }
 
-    public HashSet<ConstraintAnchor> getDependents() { return mDependents; }
+    public HashMap<Type, ConstraintAnchor> getDependents() { return mDependents; }
     public boolean hasDependents() {
         if (mDependents == null) {
             return false;
@@ -57,7 +57,7 @@ public class ConstraintAnchor {
         if (mDependents == null) {
             return false;
         }
-        for (ConstraintAnchor anchor : mDependents) {
+        for (ConstraintAnchor anchor : mDependents.values()) {
             ConstraintAnchor opposite = anchor.getOpposite();
             if (opposite.isConnected()) {
                 return true;
@@ -115,9 +115,9 @@ public class ConstraintAnchor {
         }
         if (mTarget != null) {
             if (mTarget.mDependents == null) {
-                mTarget.mDependents = new HashSet<>();
+                mTarget.mDependents = new HashMap<>();
             }
-            mTarget.mDependents.add(this);
+            mTarget.mDependents.put(mType, this);
         }
         mMargin = source.mMargin;
         mGoneMargin = source.mGoneMargin;
@@ -221,10 +221,10 @@ public class ConstraintAnchor {
         }
         mTarget = toAnchor;
         if (mTarget.mDependents == null) {
-            mTarget.mDependents = new HashSet<>();
+            mTarget.mDependents = new HashMap<>();
         }
         if (mTarget.mDependents != null) {
-            mTarget.mDependents.add(this);
+            mTarget.mDependents.put(mType, this);
         }
         mMargin = margin;
         mGoneMargin = goneMargin;

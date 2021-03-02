@@ -171,21 +171,21 @@ public class Grouping {
 
             ConstraintAnchor left = layout.getAnchor(ConstraintAnchor.Type.LEFT);
             if (left.getDependents() != null) {
-                for (ConstraintAnchor first : left.getDependents()) {
+                for (ConstraintAnchor first : left.getDependents().values()) {
                     findDependents(first.mOwner, ConstraintWidget.HORIZONTAL, dependencyLists, null);
                 }
             }
 
             ConstraintAnchor right = layout.getAnchor(ConstraintAnchor.Type.RIGHT);
             if (right.getDependents() != null) {
-                for (ConstraintAnchor first : right.getDependents()) {
+                for (ConstraintAnchor first : right.getDependents().values()) {
                     findDependents(first.mOwner, ConstraintWidget.HORIZONTAL, dependencyLists, null);
                 }
             }
 
             ConstraintAnchor center = layout.getAnchor(ConstraintAnchor.Type.CENTER);
             if (center.getDependents() != null) {
-                for (ConstraintAnchor first : center.getDependents()) {
+                for (ConstraintAnchor first : center.getDependents().values()) {
                     findDependents(first.mOwner, ConstraintWidget.HORIZONTAL, dependencyLists, null);
                 }
             }
@@ -215,28 +215,28 @@ public class Grouping {
 
             ConstraintAnchor top = layout.getAnchor(ConstraintAnchor.Type.TOP);
             if (top.getDependents() != null) {
-                for (ConstraintAnchor first : top.getDependents()) {
+                for (ConstraintAnchor first : top.getDependents().values()) {
                     findDependents(first.mOwner, VERTICAL, dependencyLists, null);
                 }
             }
 
             ConstraintAnchor baseline = layout.getAnchor(ConstraintAnchor.Type.BASELINE);
             if (baseline.getDependents() != null) {
-                for (ConstraintAnchor first : baseline.getDependents()) {
+                for (ConstraintAnchor first : baseline.getDependents().values()) {
                     findDependents(first.mOwner, VERTICAL, dependencyLists, null);
                 }
             }
 
             ConstraintAnchor bottom = layout.getAnchor(ConstraintAnchor.Type.BOTTOM);
             if (bottom.getDependents() != null) {
-                for (ConstraintAnchor first : bottom.getDependents()) {
+                for (ConstraintAnchor first : bottom.getDependents().values()) {
                     findDependents(first.mOwner, VERTICAL, dependencyLists, null);
                 }
             }
 
             ConstraintAnchor center = layout.getAnchor(ConstraintAnchor.Type.CENTER);
             if (center.getDependents() != null) {
-                for (ConstraintAnchor first : center.getDependents()) {
+                for (ConstraintAnchor first : center.getDependents().values()) {
                     findDependents(first.mOwner, VERTICAL, dependencyLists, null);
                 }
             }

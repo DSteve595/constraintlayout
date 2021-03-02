@@ -3344,34 +3344,34 @@ public class ConstraintWidget {
             addToSolver(system, container.optimizeFor(Optimizer.OPTIMIZATION_GRAPH));
         }
         if (orientation == HORIZONTAL) {
-            HashSet<ConstraintAnchor> dependents = mLeft.getDependents();
+            HashMap<ConstraintAnchor.Type, ConstraintAnchor> dependents = mLeft.getDependents();
             if (dependents != null) {
-                for (ConstraintAnchor anchor : dependents) {
+                for (ConstraintAnchor anchor : dependents.values()) {
                     anchor.mOwner.addChildrenToSolverByDependency(container, system, widgets, orientation, true);
                 }
             }
             dependents = mRight.getDependents();
             if (dependents != null) {
-                for (ConstraintAnchor anchor : dependents) {
+                for (ConstraintAnchor anchor : dependents.values()) {
                     anchor.mOwner.addChildrenToSolverByDependency(container, system, widgets, orientation, true);
                 }
             }
         } else {
-            HashSet<ConstraintAnchor> dependents = mTop.getDependents();
+            HashMap<ConstraintAnchor.Type, ConstraintAnchor> dependents = mTop.getDependents();
             if (dependents != null) {
-                for (ConstraintAnchor anchor : dependents) {
+                for (ConstraintAnchor anchor : dependents.values()) {
                     anchor.mOwner.addChildrenToSolverByDependency(container, system, widgets, orientation, true);
                 }
             }
             dependents = mBottom.getDependents();
             if (dependents != null) {
-                for (ConstraintAnchor anchor : dependents) {
+                for (ConstraintAnchor anchor : dependents.values()) {
                     anchor.mOwner.addChildrenToSolverByDependency(container, system, widgets, orientation, true);
                 }
             }
             dependents = mBaseline.getDependents();
             if (dependents != null) {
-                for (ConstraintAnchor anchor : dependents) {
+                for (ConstraintAnchor anchor : dependents.values()) {
                     anchor.mOwner.addChildrenToSolverByDependency(container, system, widgets, orientation, true);
                 }
             }

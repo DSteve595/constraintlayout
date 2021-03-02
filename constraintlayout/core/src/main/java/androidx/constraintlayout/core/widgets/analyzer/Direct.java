@@ -308,7 +308,7 @@ public class Direct {
         int r = right.getFinalValue();
 
         if (left.getDependents() != null && left.hasFinalValue()) {
-            for (ConstraintAnchor first : left.getDependents()) {
+            for (ConstraintAnchor first : left.getDependents().values()) {
                 ConstraintWidget widget = first.mOwner;
                 int x1 = 0;
                 int x2 = 0;
@@ -360,7 +360,7 @@ public class Direct {
             return;
         }
         if (right.getDependents() != null && right.hasFinalValue()) {
-            for (ConstraintAnchor first : right.getDependents()) {
+            for (ConstraintAnchor first : right.getDependents().values()) {
                 ConstraintWidget widget = first.mOwner;
                 boolean canMeasure = canMeasure(level + 1, widget);
                 if (widget.isMeasureRequested() && canMeasure) {
@@ -430,7 +430,7 @@ public class Direct {
         int b = bottom.getFinalValue();
 
         if (top.getDependents() != null && top.hasFinalValue()) {
-            for (ConstraintAnchor first : top.getDependents()) {
+            for (ConstraintAnchor first : top.getDependents().values()) {
                 ConstraintWidget widget = first.mOwner;
                 int y1 = 0;
                 int y2 = 0;
@@ -482,7 +482,7 @@ public class Direct {
             return;
         }
         if (bottom.getDependents() != null && bottom.hasFinalValue()) {
-            for (ConstraintAnchor first : bottom.getDependents()) {
+            for (ConstraintAnchor first : bottom.getDependents().values()) {
                 ConstraintWidget widget = first.mOwner;
                 boolean canMeasure = canMeasure(level + 1, widget);
                 if (widget.isMeasureRequested() && canMeasure) {
@@ -530,7 +530,7 @@ public class Direct {
         ConstraintAnchor baseline = layout.getAnchor(ConstraintAnchor.Type.BASELINE);
         if (baseline.getDependents() != null && baseline.hasFinalValue()) {
             int baselineValue = baseline.getFinalValue();
-            for (ConstraintAnchor first : baseline.getDependents()) {
+            for (ConstraintAnchor first : baseline.getDependents().values()) {
                 ConstraintWidget widget = first.mOwner;
                 boolean canMeasure = canMeasure(level + 1, widget);
                 if (widget.isMeasureRequested() && canMeasure) {
